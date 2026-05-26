@@ -22,7 +22,7 @@ if ($industri) {
 
 <div class="glass-card" style="background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: white; padding: 20px;">
     <p style="font-size: 11px; opacity: 0.8; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px;">Industri Mitra</p>
-    <h3 style="font-size: 18px; font-weight: 700;"><?= $industri ? $industri['nama_industri'] : 'Belum Terhubung' ?></h3>
+    <h3 style="font-size: 18px; font-weight: 700;"><?= $industri ? htmlspecialchars($industri['nama_industri']) : 'Belum Terhubung' ?></h3>
 </div>
 
 <h4 style="font-size: 16px; font-weight: 700; margin-bottom: 16px; display: flex; align-items: center; gap: 10px;">
@@ -34,12 +34,12 @@ if ($industri) {
 <div class="data-card">
     <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
         <div>
-            <h4 style="margin-bottom: 2px; color: var(--primary);"><?= $j['nama_lengkap'] ?></h4>
+            <h4 style="margin-bottom: 2px; color: var(--primary);"><?= htmlspecialchars($j['nama_lengkap']) ?></h4>
             <p style="font-size: 11px; color: var(--text-muted);"><?= date('d M Y', strtotime($j['tanggal'])) ?></p>
         </div>
         <span class="badge badge-pending">Pending</span>
     </div>
-    <p style="font-size: 14px; margin-bottom: 15px;"><strong>KD:</strong> <?= $j['kompetensi_dasar'] ?><br><?= $j['kegiatan'] ?></p>
+    <p style="font-size: 14px; margin-bottom: 15px;"><strong>KD:</strong> <?= htmlspecialchars($j['kompetensi_dasar']) ?><br><?= htmlspecialchars($j['kegiatan']) ?></p>
     
     <form action="pembimbing/proses_validasi.php" method="POST">
         <input type="hidden" name="id_jurnal" value="<?= $j['id_jurnal'] ?>">

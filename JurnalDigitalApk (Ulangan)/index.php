@@ -44,10 +44,10 @@ switch ($page) {
             <div style="display: flex; align-items: center; gap: 15px; justify-content: space-between;">
                 <div style="display: flex; align-items: center; gap: 12px;">
                     <div style="width: 45px; height: 45px; border-radius: 50%; background: rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; border: 2px solid rgba(255,255,255,0.3);">
-                        <img src="<?= $_SESSION['foto_profil'] ? 'uploads/profil/'.$_SESSION['foto_profil'] : 'https://ui-avatars.com/api/?name='.$_SESSION['nama_lengkap'].'&background=random' ?>" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
+                        <img src="<?= $_SESSION['foto_profil'] ? 'uploads/profil/'.htmlspecialchars($_SESSION['foto_profil']) : 'https://ui-avatars.com/api/?name='.urlencode($_SESSION['nama_lengkap']).'&background=random' ?>" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
                     </div>
                     <div>
-                        <h2 style="font-size: 18px;"><?= explode(' ', $_SESSION['nama_lengkap'])[0] ?></h2>
+                        <h2 style="font-size: 18px;"><?= htmlspecialchars(explode(' ', $_SESSION['nama_lengkap'])[0]) ?></h2>
                         <p style="font-size: 12px; opacity: 0.8;"><?= ucfirst($role) ?></p>
                     </div>
                 </div>

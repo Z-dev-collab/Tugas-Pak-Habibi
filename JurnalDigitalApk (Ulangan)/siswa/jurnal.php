@@ -53,20 +53,20 @@ $journals = $stmt->fetchAll();
     <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
         <div>
             <p style="font-size: 12px; color: var(--text-muted); font-weight: 500;"><?= date('l, d M Y', strtotime($j['tanggal'])) ?></p>
-            <h4 style="margin-top: 4px;"><?= $j['kompetensi_dasar'] ?></h4>
+            <h4 style="margin-top: 4px;"><?= htmlspecialchars($j['kompetensi_dasar']) ?></h4>
         </div>
         <span class="badge badge-<?= ($j['status_validasi'] == 'approved') ? 'success' : (($j['status_validasi'] == 'pending') ? 'pending' : 'danger') ?>">
-            <?= $j['status_validasi'] ?>
+            <?= htmlspecialchars($j['status_validasi']) ?>
         </span>
     </div>
-    <p style="font-size: 14px; line-height: 1.6; color: var(--text-main); margin-bottom: 15px;"><?= $j['kegiatan'] ?></p>
+    <p style="font-size: 14px; line-height: 1.6; color: var(--text-main); margin-bottom: 15px;"><?= htmlspecialchars($j['kegiatan']) ?></p>
     <?php if($j['foto_kegiatan']): ?>
-        <img src="uploads/jurnal/<?= $j['foto_kegiatan'] ?>" style="width: 100%; height: 180px; object-fit: cover; border-radius: var(--radius-md); margin-bottom: 15px;">
+        <img src="uploads/jurnal/<?= htmlspecialchars($j['foto_kegiatan']) ?>" style="width: 100%; height: 180px; object-fit: cover; border-radius: var(--radius-md); margin-bottom: 15px;">
     <?php endif; ?>
     <?php if($j['catatan_pembimbing']): ?>
         <div style="background: #f8fafc; border-left: 4px solid var(--primary); padding: 12px; border-radius: 8px; font-size: 13px;">
             <p style="color: var(--text-muted); margin-bottom: 4px; font-weight: 600; font-size: 11px; text-transform: uppercase;">Catatan Pembimbing:</p>
-            <p><?= $j['catatan_pembimbing'] ?></p>
+            <p><?= htmlspecialchars($j['catatan_pembimbing']) ?></p>
         </div>
     <?php endif; ?>
 </div>

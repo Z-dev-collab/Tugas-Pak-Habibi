@@ -4,15 +4,20 @@ checkLogin();
 checkRole(['pembimbing_industri']);
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $id_jurnal = $_POST['id_jurnal'];
+    $id_jurnal = intval($_POST['id_jurnal']);
     $action = $_POST['action']; // approved or rejected
-    $catatan = $_POST['catatan'];
+    $catatan = trim($_POST['catatan']);
 
-    $stmt = $pdo->prepare("UPDATE jurnal_harian SET status_validasi = ?, catatan_pembimbing = ? WHERE id_jurnal = ?");
-    if ($stmt->execute([$action, $catatan, $id_jurnal])) {
-        redirect('dashboard.php?success=validated');
+    // Validasi action hanya boleh approved atau rejected
+    if (!in_array($action, ['approved', 'rejected'])) {
+        redirect('../index.php?page=dashboard&error=invalid_action');
+    }
+
+    $stmt = $pdo->prepare("UPDATE jurnal_harian SET status_validasi = ?, catatan_pembimbing = ?, validated_by = ?, validated_at = NOW() WHERE id_jurnal = ?");
+    if ($stmt->execute([$action, $catatan, $_SESSION['user_id'], $id_jurnal])) {
+        redirect('../index.php?page=dashboard&success=validated');
     } else {
-        redirect('dashboard.php?error=failed');
+        redirect('../index.php?page=dashboard&error=failed');
     }
 }
 ?>

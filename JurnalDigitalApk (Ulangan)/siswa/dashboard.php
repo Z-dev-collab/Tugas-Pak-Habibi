@@ -20,6 +20,15 @@ $absen_today = $stmt->fetch();
 $stmt = $pdo->prepare("SELECT * FROM jurnal_harian WHERE id_user = ? ORDER BY tanggal DESC LIMIT 3");
 $stmt->execute([$user_id]);
 $journals = $stmt->fetchAll();
+
+// Hitung statistik dari database (bukan hardcoded)
+$stmt = $pdo->prepare("SELECT COUNT(*) as total FROM absensi WHERE id_user = ? AND status_kehadiran = 'hadir'");
+$stmt->execute([$user_id]);
+$total_hadir = $stmt->fetch()['total'];
+
+$stmt = $pdo->prepare("SELECT COUNT(*) as total FROM jurnal_harian WHERE id_user = ? AND status_validasi = 'approved'");
+$stmt->execute([$user_id]);
+$total_jurnal_valid = $stmt->fetch()['total'];
 ?>
 
 <style>
@@ -55,12 +64,12 @@ $journals = $stmt->fetchAll();
 <div class="stats-grid">
     <div class="stat-item">
         <p>Total Hadir</p>
-        <h3>24 Hari</h3>
+        <h3><?= $total_hadir ?> Hari</h3>
         <i data-lucide="calendar-check" style="color: var(--primary); position: absolute; right: 10px; bottom: 10px; opacity: 0.1; width: 50px; height: 50px;"></i>
     </div>
     <div class="stat-item">
         <p>Jurnal Valid</p>
-        <h3>18</h3>
+        <h3><?= $total_jurnal_valid ?></h3>
         <i data-lucide="file-check" style="color: var(--success); position: absolute; right: 10px; bottom: 10px; opacity: 0.1; width: 50px; height: 50px;"></i>
     </div>
 </div>
@@ -75,7 +84,7 @@ $journals = $stmt->fetchAll();
     </div>
     <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px;">
         <i data-lucide="map-pin" style="color: var(--danger); width: 20px;"></i>
-        <span style="font-size: 14px; color: var(--text-muted);"><?= $siswa['nama_industri'] ?></span>
+        <span style="font-size: 14px; color: var(--text-muted);"><?= htmlspecialchars($siswa['nama_industri']) ?></span>
     </div>
     
     <?php if (!$absen_today): ?>
@@ -87,7 +96,7 @@ $journals = $stmt->fetchAll();
         <div style="text-align: center; background: #f0fdf4; padding: 12px; border-radius: 12px; border: 1px solid #dcfce7;">
             <p style="font-size: 13px; color: #15803d; font-weight: 600;">
                 <i data-lucide="check-circle" style="width: 16px; vertical-align: middle;"></i> 
-                Absen masuk: <?= $absen_today['jam_masuk'] ?>
+                Absen masuk: <?= htmlspecialchars($absen_today['jam_masuk']) ?>
             </p>
         </div>
     <?php endif; ?>
@@ -106,11 +115,11 @@ $journals = $stmt->fetchAll();
     <?php foreach($journals as $j): ?>
     <div class="journal-row">
         <div style="flex: 1;">
-            <p style="font-weight: 600; font-size: 14px;"><?= substr($j['kegiatan'], 0, 35) ?>...</p>
+            <p style="font-weight: 600; font-size: 14px;"><?= htmlspecialchars(substr($j['kegiatan'], 0, 35)) ?>...</p>
             <p style="font-size: 12px; color: var(--text-muted);"><?= date('d M Y', strtotime($j['tanggal'])) ?></p>
         </div>
         <span class="badge badge-<?= ($j['status_validasi'] == 'approved') ? 'success' : (($j['status_validasi'] == 'pending') ? 'pending' : 'danger') ?>">
-            <?= $j['status_validasi'] ?>
+            <?= htmlspecialchars($j['status_validasi']) ?>
         </span>
     </div>
     <?php endforeach; ?>
