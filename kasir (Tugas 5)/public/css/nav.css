@@ -1,0 +1,99 @@
+body {
+    background-color: #ddd8d8;
+}
+
+.container {
+    margin: 20px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header a {
+    background-color: rgb(86, 86, 241);
+    text-decoration: none;
+    color: aliceblue;
+    text-align: center;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+.search button {
+    width: 12%;
+    height: 42px;
+    border-radius: 5px;
+    border: 3px solid green;
+    font-size: 15px;
+}
+
+.search input{
+    width: 85%;
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid rgb(85, 84, 84);
+    margin-right: 10px;
+    margin-bottom: 10px;
+    padding-left: 10px;
+    font-size: 15px;
+}
+
+.data-table {
+    padding: 20px;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: black;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.data-table table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #ddd8d8;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+ .data-table table thead,
+ .data-table table td {
+    padding: 12px 15px;
+    /* border: 1px solid #ddd; */
+    text-align: left;
+    font-size: 14px;
+}
+
+.data-table table thead {
+    font-weight: bold;
+    background-color: white;
+}
+
+.data-table table tr:nth-child(even) {
+    background-color: white;
+}
+
+.aksi a {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    color: white;
+    transition: background-color 0.3s ease, transform 0.1s ease-in-out;
+}
+
+.aksi a.btn-edit {
+    background-color: #adaf2a;     
+}
+
+.aksi button {
+    background-color: #dc3545; 
+    padding: 7px 14px;
+    border-radius: 5px; 
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+}

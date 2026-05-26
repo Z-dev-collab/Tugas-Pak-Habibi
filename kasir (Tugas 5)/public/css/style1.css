@@ -1,0 +1,206 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 20px;
+    background: #f1f3f5;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #333;
+}
+
+/* GRID UTAMA */
+.page {
+    max-width: 1300px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 3.2fr 1.8fr;
+    gap: 18px;
+}
+
+/* PANEL */
+.panel {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    padding: 14px;
+}
+
+/* HEADER */
+.panel-header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.panel-header h3 {
+    margin: 0;
+    font-size: 17px;
+}
+
+/* SEARCH GRID */
+.search-grid {
+    display: grid;
+    grid-template-columns: 1fr 90px;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.search-grid input {
+    padding: 8px;
+    border: 1px solid #cfd4da;
+    border-radius: 4px;
+    font-size: 13px;
+}
+
+/* BUTTON */
+.btn-outline {
+    background: #fff;
+    border: 1px solid #cfd4da;
+    padding: 5px 10px;
+    font-size: 13px;
+    border-radius: 4px;
+}
+
+.btn-search {
+    border: 1px solid #cfd4da;
+    background: #fff;
+    border-radius: 4px;
+    font-size: 13px;
+}
+
+/* TABLE */
+.table, .cart-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+.table th,
+.cart-table th {
+    background: #f8f9fa;
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.table td,
+.cart-table td {
+    padding: 9px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+/* AKSI */
+.aksi {
+    display: grid;
+    grid-template-columns: 50px auto;
+    gap: 6px;
+    align-items: center;
+}
+
+.aksi input {
+    padding: 4px;
+    border: 1px solid #cfd4da;
+    border-radius: 4px;
+    font-size: 13px;
+}
+
+.btn-cart {
+    background: #0d6efd;
+    color: #fff;
+    border: none;
+    padding: 6px 10px;
+    font-size: 12px;
+    border-radius: 4px;
+}
+
+/* FOOTER TABLE */
+.table-footer {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    margin-top: 10px;
+    font-size: 12px;
+    color: #6c757d;
+}
+
+.pagination {
+    display: grid;
+    grid-auto-flow: column;
+    gap: 4px;
+}
+
+.pagination button {
+    padding: 4px 8px;
+    border: 1px solid #cfd4da;
+    background: #fff;
+    border-radius: 4px;
+}
+
+.pagination .active {
+    background: #0d6efd;
+    color: #fff;
+}
+
+/* KERANJANG */
+.cart-table input {
+    width: 40px;
+    padding: 4px;
+    border-radius: 4px;
+    border: 1px solid #cfd4da;
+    font-size: 12px;
+}
+
+.btn-ok {
+    padding: 4px 8px;
+    font-size: 11px;
+    border: 1px solid #cfd4da;
+    background: #fff;
+    border-radius: 4px;
+}
+
+.btn-delete {
+    background: #dc3545;
+    color: #fff;
+    border: none;
+    padding: 4px 7px;
+    font-size: 11px;
+    border-radius: 4px;
+}
+
+/* TOTAL GRID */
+.total-grid {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    font-weight: bold;
+    margin: 12px 0;
+}
+
+/* FORM GRID */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 6px;
+    font-size: 12px;
+}
+
+.form-grid input {
+    padding: 8px;
+    border: 1px solid #cfd4da;
+    border-radius: 4px;
+}
+
+/* CHECKOUT */
+.btn-checkout {
+    margin-top: 10px;
+    width: 100%;
+    padding: 12px;
+    background: #198754;
+    color: #fff;
+    border: none;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 4px;
+}

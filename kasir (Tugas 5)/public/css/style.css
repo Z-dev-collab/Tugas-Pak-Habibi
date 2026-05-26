@@ -1,0 +1,446 @@
+body {
+    background-color: rgb(224, 231, 233);
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.transaksi {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 20px;
+}
+
+.data-table {
+    padding: 20px;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.data-table .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.data-table .header h1 {
+    margin: 0;
+    font-size: 24px;
+    color: #333;
+}
+
+.data-table .header button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.data-table .header button:hover {
+    background-color: #0056b3;
+}
+
+.data-table .search {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.data-table .search input {
+    flex: 1;
+    height: 42px;
+    padding: 0 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+.data-table .search button {
+    width: 100px;
+    height: 42px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.data-table .search button:hover {
+    background-color: #0056b3;
+}
+
+.data-table table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.data-table table thead {
+    background-color: #f8f9fa;
+}
+
+.data-table table thead td {
+    padding: 12px 15px;
+    text-align: left;
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    border-bottom: 2px solid #ddd;
+}
+
+.data-table table tbody td {
+    padding: 12px 15px;
+    text-align: left;
+    font-size: 14px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.data-table table tbody tr:hover {
+    background-color: #f8f9fa;
+}
+
+.data-table table tbody tr:nth-child(even) {
+    background-color: #fafafa;
+}
+
+.data-table table .text-end {
+    text-align: right;
+}
+
+.data-table table .fw-semibold {
+    font-weight: 600;
+}
+
+.data-table table form {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.data-table table input[type="number"] {
+    width: 70px;
+    height: 32px;
+    padding: 4px 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.data-table table .btn {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.data-table table .btn-primary {
+    background-color: #007bff;
+    color: white;
+}
+
+.data-table table .btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.data-table table .btn-primary:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.data-table .results {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+}
+
+.data-table .results p {
+    margin: 0;
+    color: #666;
+    font-size: 14px;
+}
+
+.data-table .filter {
+    display: flex;
+    gap: 5px;
+}
+
+.data-table .filter button {
+    width: 35px;
+    height: 35px;
+    border: 1px solid #ddd;
+    background-color: white;
+    color: #007bff;
+    font-size: 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.data-table .filter button:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+.keranjang {
+    padding: 20px;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.keranjang h1 {
+    margin: 0 0 20px 0;
+    font-size: 24px;
+    color: #333;
+}
+
+.keranjang table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    margin-bottom: 20px;
+}
+
+.keranjang table thead {
+    background-color: #f8f9fa;
+}
+
+.keranjang table thead td {
+    padding: 12px 10px;
+    text-align: left;
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    border-bottom: 2px solid #ddd;
+}
+
+.keranjang table tbody {
+    display: block;
+    max-height: 250px;
+    overflow-y: auto;
+}
+
+.keranjang table thead,
+.keranjang table tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+
+.keranjang table tbody td {
+    padding: 12px 10px;
+    font-size: 14px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.keranjang table .fw-semibold {
+    font-weight: 600;
+    color: #333;
+}
+
+.keranjang table .text-muted {
+    color: #6c757d;
+}
+
+.keranjang table .small {
+    font-size: 12px;
+}
+
+.keranjang table .text-end {
+    text-align: right;
+}
+
+.keranjang table form {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.keranjang table input[type="number"] {
+    width: 60px;
+    height: 30px;
+    padding: 4px 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.keranjang table .btn {
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.keranjang table .btn-outline-dark {
+    background-color: white;
+    border: 1px solid #333;
+    color: #333;
+}
+
+.keranjang table .btn-outline-dark:hover {
+    background-color: #333;
+    color: white;
+}
+
+.keranjang table .btn-outline-danger {
+    background-color: white;
+    border: 1px solid #dc3545;
+    color: #dc3545;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.keranjang table .btn-outline-danger:hover {
+    background-color: #dc3545;
+    color: white;
+}
+
+.data-checkout {
+    margin-top: 20px;
+}
+
+.data-checkout hr {
+    border: none;
+    border-top: 1px solid #eee;
+    margin: 20px 0;
+}
+
+.data-checkout .d-flex {
+    display: flex;
+}
+
+.data-checkout .justify-content-between {
+    justify-content: space-between;
+}
+
+.data-checkout .fw-semibold {
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.data-checkout .fw-bold {
+    font-weight: bold;
+    font-size: 18px;
+    color: #28a745;
+}
+
+.data-checkout form {
+    margin-top: 20px;
+}
+
+.data-checkout .mb-2 {
+    margin-bottom: 15px;
+}
+
+.data-checkout .form-label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    font-size: 14px;
+    color: #333;
+}
+
+.data-checkout .form-control {
+    width: 100%;
+    height: 40px;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.data-checkout .form-control:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+.data-checkout .is-invalid {
+    border-color: #dc3545;
+}
+
+.data-checkout .invalid-feedback {
+    display: block;
+    color: #dc3545;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.data-checkout .d-grid {
+    display: grid;
+}
+
+.data-checkout .mt-3 {
+    margin-top: 20px;
+}
+
+.data-checkout .btn-success {
+    width: 100%;
+    height: 45px;
+    border: none;
+    border-radius: 6px;
+    background-color: #28a745;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.data-checkout .btn-success:hover {
+    background-color: #218838;
+}
+
+.data-checkout .btn-lg {
+    height: 50px;
+    font-size: 18px;
+}
+
+@media (max-width: 992px) {
+    .transaksi {
+        grid-template-columns: 1fr;
+    }
+    
+    .keranjang {
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .data-table .search {
+        flex-direction: column;
+    }
+    
+    .data-table .search button {
+        width: 100%;
+    }
+    
+    .data-table table,
+    .keranjang table {
+        font-size: 12px;
+    }
+}
